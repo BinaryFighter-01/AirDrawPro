@@ -1,0 +1,359 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --accent-purple: #a855f7;
+  --accent-blue: #3b82f6;
+  --accent-pink: #ec4899;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Base */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 12px 24px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.glass-button:hover::before {
+  left: 100%;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 40px rgba(147, 51, 234, 0.3),
+    0 0 20px rgba(147, 51, 234, 0.2);
+}
+
+.glass-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 20px rgba(147, 51, 234, 0.2);
+}
+
+/* Primary Button */
+.glass-button-primary {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(59, 130, 246, 0.4));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.glass-button-primary:hover {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.6), rgba(59, 130, 246, 0.6));
+  box-shadow: 
+    0 10px 40px rgba(168, 85, 247, 0.4),
+    0 0 30px rgba(168, 85, 247, 0.3);
+}
+
+/* Danger Button */
+.glass-button-danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.4), rgba(236, 72, 153, 0.4));
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.glass-button-danger:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.6), rgba(236, 72, 153, 0.6));
+  box-shadow: 
+    0 10px 40px rgba(239, 68, 68, 0.4),
+    0 0 30px rgba(236, 72, 153, 0.3);
+}
+
+/* Success Button */
+.glass-button-success {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(16, 185, 129, 0.4));
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.glass-button-success:hover {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.6), rgba(16, 185, 129, 0.6));
+  box-shadow: 
+    0 10px 40px rgba(34, 197, 94, 0.4),
+    0 0 30px rgba(16, 185, 129, 0.3);
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 60px 0 rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Animated Background Orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  animation: float 15s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  bottom: -50px;
+  left: -50px;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  top: 50%;
+  left: 30%;
+  animation-delay: -10s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.4);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.6);
+  background-clip: content-box;
+}
+
+/* Canvas Styling */
+.canvas-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.drawing-canvas {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+}
+
+/* Status Indicator */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-dot.active {
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.status-dot.inactive {
+  background: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+}
+
+/* Loading Animation */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #a855f7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Text Glow Effect */
+.text-glow {
+  text-shadow: 
+    0 0 10px rgba(168, 85, 247, 0.5),
+    0 0 20px rgba(168, 85, 247, 0.3),
+    0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+/* Smooth Page Transitions */
+.page-transition {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Tool Icon Button */
+.tool-button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tool-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transform: scale(1.1);
+}
+
+.tool-button.active {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(59, 130, 246, 0.5));
+  border-color: rgba(168, 85, 247, 0.4);
+  color: white;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Color Picker */
+.color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.color-option:hover {
+  transform: scale(1.2);
+}
+
+.color-option.selected {
+  border-color: white;
+  box-shadow: 0 0 15px currentColor;
+}
+
+/* Notification Toast */
+.toast {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 16px 24px;
+  color: white;
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .glass-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .glass-card {
+    border-radius: 16px;
+  }
+  
+  .orb {
+    filter: blur(40px);
+  }
+  
+  .orb-1 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .orb-2 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .orb-3 {
+    width: 100px;
+    height: 100px;
+  }
+}
