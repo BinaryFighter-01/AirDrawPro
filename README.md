@@ -226,20 +226,7 @@ The following images demonstrate the AirDrawPro application during operation:
 #### Figure 1: Initial Setup
 ![Application Startup](assets/Screenshot%202026-02-19%20204334.png)
 *Initial application window showing camera feed with hand detection enabled*
-
-#### Figure 2: Drawing Session
-![Drawing Session](assets/Screenshot%202026-02-19%20230013.png)
-*Active drawing session with hand landmarks visible and canvas display*
-
-#### Figure 3: Advanced Drawing
-![Advanced Drawing](assets/Screenshot%202026-02-19%20230118.png)
-*Complex drawing patterns created using gesture-based input*
-
-#### Figure 4: Gesture Recognition
-![Gesture Recognition](assets/Screenshot%202026-02-19%20230400.png)
-*Application recognizing hand gestures for canvas interaction*
-
-#### Figure 5: Full Interface
+#### Figure 2: Full Interface
 ![Full Interface](assets/Screenshot%202026-02-20%20151634.png)
 *Complete application interface with synchronized camera and canvas windows*
 
